@@ -1,30 +1,9 @@
-# vlcb version 2
+# vlcb (2.0)
 
-See also ReadmeLog.md for dev notes
-* note that for development, local browser turn off add blocking and allow blocked 3rd party cookies -- localhost
-
+Viewer/Editor for collection of Brass Rubbings by virginia Lee Campbell
 
 
 
 
+See also ReadmeDev.md for dev notes
 
-
-> This is a starter project folder for FirebaseUI Auth for Vue with Facebook, Google and Email Authentications.
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
