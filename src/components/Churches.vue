@@ -1,12 +1,20 @@
 <template>
   <section>
     <navigation></navigation>
-    <h5 class="center-align">Churches</h5>
 
-    <li class="collection-item" v-for="c in churches" :key="c.id">
-    <b> {{c.name}} </b>  <i> {{c.year}} </i>
-    </li>
-
+      <div class='row'>
+        <div class='col s4'>
+          <li class="collection-item" v-for="c in churches" :key="c.id">
+            <span v-on:click="selectChurch({{c}}" <b> {{c.name}} </b> <i> {{c.address}} </i>
+          </li>
+        </div>
+        <div class='col s8'>
+          <h2> {{selectedChurch.name}} </h2>
+          <p> {{selectedChurch.address}} &nbsp; map: {{selectedChurch.latlon}} </p>
+          <p> year: {{selectedChurch.year}} </p>
+          <p> {{selectedChurch.mainNote}} </p>
+        </div>
+    </div>
   </section>
 </template>
 
@@ -17,7 +25,8 @@ import firebase from "firebase"
 export default {
     data() {
         return {
-          churches: []
+          churches: [],
+          selectedChurch: {}
         }
     },
     components: {
@@ -36,8 +45,12 @@ export default {
             c.id = d.id // so we have the collection id
             this.churches.push(c)
           })
+          this.selectedChurch = this.churches[0]
         }, err => console.error(err)
         )
+      },
+      selectChurch( c ) {
+        this.selectedChurch = c
       }
     }
 }
