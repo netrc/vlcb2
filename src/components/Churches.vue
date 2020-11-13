@@ -4,8 +4,8 @@
 
       <div class='row'>
         <div class='col s4'>
-          <li class="collection-item" v-for="c in churches" :key="c.id">
-            <span v-on:click="selectChurch({{c}}" <b> {{c.name}} </b> <i> {{c.address}} </i>
+          <li class="collection-item hoverShow" v-for="c in churches" :key="c.id" v-on:click="selectChurch(c)">
+            <span <b> {{c.name}} </b> <i> {{c.address}} </i>
           </li>
         </div>
         <div class='col s8'>
@@ -17,6 +17,12 @@
     </div>
   </section>
 </template>
+
+<style>
+li.hoverShow:hover {
+  background: #CCC;
+}
+</style>
 
 <script>
 import navigation from "@/components/NavBar.vue"
@@ -32,6 +38,14 @@ export default {
     components: {
         navigation
     },
+    // try using VueSimpleMarkdown npm module - https://www.npmjs.com/package/vue-simple-markdown
+    // or https://www.npmjs.com/package/vue-markdown
+    // then just require/import above and use. webpack does the magic
+    //computed: {
+    //  compiledMainNote: () => {
+    //    return marked(this.selectedChurch.mainNote, { sanitize: true })
+    //  }
+    //},
     created() {
       this.getChurches()
     },
