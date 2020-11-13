@@ -1,23 +1,48 @@
 # Development notes
 
 * fst tooling
-  * works for churches
+  * DONE works for churches
   * add brasses, rubbings, notes, pics, logs
   * roles ?
   * DONE - servicekey - retrieved from firebase vlcb2 settings, service accounts; saved in keys (not in git)
   * ? how long does servicekey last? can i make new ones?
+  
 
 * vlcb main.js config
-  * DONE - auth - retrieved from firebase vlcb2 settings, app 'config'
+  * DONE - retrieved from firebase vlcb2 settings, app 'config'
+  * ? need to keep config (apiKey) in separate file
+  * file not in github, but pushed to dist and host???
+  * or need to set all the values in env ?
+* vlcb component/Login.js
+  * ? add email login too?  // not really; only 'role' is editor == me
+  * DONE - using google id login ok
+  * what's with 'PROVIDER_ID' in the signInOptions - https://firebase.google.com/docs/projects/pwa
+  * show Role in Profile (if logged in)
 * churches
-  * DONE basic data list works
-  * full view of data
+  * DONE basic data list works;  DONE basic view of data
+  * change background on selection
+  * need markdown for mainNote
+    * show compiled markdown
+    * when clicked, replace with raw markdown
+    * when saved, put data in firestore, show new compiled markdown
+  * inline editing for year - !! if editor
+  * inline editing for address - !! if editor
+  * inline editing for mainNote - !! if editor
+  * inline editing for latlon - !! if editor
+  * geoLink
+  * "add Church" button !! if editor - just add dummy church
+  * // no 'delete' button, use firestore console
 * brasses
+  * upload data
+* rubbings
+  * upload data
+* pics
   * upload data
 * other pages
   * map
   * blog
   * stats
+  * notes (w/ pagination!) (or autoscroll!)
   * logs (w/ pagination!) (or autoscroll!)
 
 * hosting

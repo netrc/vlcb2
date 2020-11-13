@@ -22,6 +22,10 @@ strFormat.churches = d => {
   const dd = d.data()
   return `${d.id} => ${dd.name} year: ${dd.year}`
 }
+strFormat.users = d => {
+  const dd = d.data()
+  return `${d.id} user's roles => ${dd.roles}`
+}
 
 // just checks for empty first; use .docs to get array to map
 const colRefMap = (cr, f) => (cr.empty) ? ['<empty>'] : cr.docs.map(f)
@@ -32,5 +36,13 @@ const getAll = async (db, colName) => {
   console.log(strList.join('\n'))
 }
 
-getAll(db, 'churches')
-
+const availColls = [ 'churches', 'users' ]
+arg2 = (process.argv.length == 3) ? process.argv[2] : 'xxx'  // show
+// check for -dump churches
+// check for -delete -y churches
+// check for -import churches
+if (! availColls.includes(arg2)) {
+  console.error(`must be one of ${availColls.join(', ')}`)
+  process.exit()
+}
+getAll(db, arg2) // simple str output
