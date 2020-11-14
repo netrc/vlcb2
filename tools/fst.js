@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 // firestore get/set/dump/insert utility
 
@@ -28,21 +29,43 @@ strFormat.users = d => {
 }
 
 // just checks for empty first; use .docs to get array to map
-const colRefMap = (cr, f) => (cr.empty) ? ['<empty>'] : cr.docs.map(f)
+const colRefNormalize = cr => (cr.empty) ? ['<empty>'] : cr.docs
+const colRefMap = (cr, f) => colRefNormalize(cr).map(f)
 
-const getAll = async (db, colName) => {
+makeDataObj = cr => {
+  const dataObj = {}
+  colRefNormalize(cr).forEach( d => {
+    dataObj[d.id] = d.data()
+  })
+  return dataObj
+}
+
+
+const colToString = async (db, colName) => {
   const colRef = await db.collection(colName).get() // has .forEach .docs  .empty
   const strList = colRefMap(colRef,strFormat[colName])
   console.log(strList.join('\n'))
 }
 
+const colToJSON = async (db, colName) => {
+  const colRef = await db.collection(colName).get() // has .forEach .docs  .empty
+  const dumpObj = makeDataObj(colRef)
+  console.log(JSON.stringify(dumpObj))
+}
+
 const availColls = [ 'churches', 'users' ]
+let doFunc = colToString
+if (process.argv[2][0] == '-') { 
+  doFunc = (process.argv[2] == '-dump') ?  colToJSON : doFunc
+  process.argv.splice(2,1)
+console.dir(process.argv)
+}
 arg2 = (process.argv.length == 3) ? process.argv[2] : 'xxx'  // show
-// check for -dump churches
 // check for -delete -y churches
 // check for -import churches
 if (! availColls.includes(arg2)) {
   console.error(`must be one of ${availColls.join(', ')}`)
   process.exit()
 }
-getAll(db, arg2) // simple str output
+
+doFunc(db, arg2) 
