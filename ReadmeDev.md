@@ -1,9 +1,10 @@
 # Development notes
 
 * fst tooling
-  * DONE works for churches
+  * DONE simple output works for churches, roles
   * add brasses, rubbings, notes, pics, logs
-  * roles ?
+  * todo: dump json
+  * todo: import json
   * DONE - servicekey - retrieved from firebase vlcb2 settings, service accounts; saved in keys (not in git)
   * ? how long does servicekey last? can i make new ones?
   
@@ -23,6 +24,9 @@
   * change background on selection
   * need markdown for mainNote
     * show compiled markdown
+  * inline editing
+    * https://www.npmjs.com/package/vue-inline-text-editor
+    * https://tiptap.dev/
     * when clicked, replace with raw markdown
     * when saved, put data in firestore, show new compiled markdown
   * inline editing for year - !! if editor
@@ -48,7 +52,16 @@
 * hosting
   * does this work as github hosted page?
   * and/or work as firebase hosted?
+    * https://vlcbt1-bd686.web.app/
+    * firebase deploy   // dist dir name in f.json
+      * had to get rid of functions directory; some errors when deploying helloworld func
 
+Firestore
+* indexer function ?
+  * any update/insert to brasses d,  go through all brasses and reset index in church[x].brasses = [ a,b,c,d ]
+  * any update/insert to rubbings d,  go through all rubbings and reset index in brasses[x].rubbings = [ a,b,c,d ]
+  * any update/insert to churches d,  go through all churches and reset ? cache value of geoMarks ?
+  * put indexes, cache in 'cache' collection ?
 * need better Firestore Rules
   * need roles document; maybe just roles: { editors: richard }
   * write is allowed to editors
