@@ -13,6 +13,9 @@
           <p> {{selectedChurch.address}} &nbsp; map: {{selectedChurch.latlon}} </p>
           <p> year: {{selectedChurch.year}} </p>
           <p> {{selectedChurch.mainNote}} </p>
+          <div v-for="p in selectedChurch.pthumbs">
+            <img v-bind:src="`${p}`">
+            </div>
         </div>
     </div>
   </section>
