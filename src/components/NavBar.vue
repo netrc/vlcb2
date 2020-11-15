@@ -6,6 +6,8 @@
             <ul id="nav-mobile" class="center-align">
               <li> <router-link to="/" tag="a">Home</router-link> </li>
               <li> <router-link to="/Churches">Churches</router-link> </li>
+              <li> <router-link to="/Brasses">Brasses</router-link> </li>
+              <li> <router-link to="/Rubbings">Rubbings</router-link> </li>
             </ul>
             <ul id="nav-mobile" class="right">
                 <li v-show="!user">
