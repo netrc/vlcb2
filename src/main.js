@@ -6,8 +6,15 @@ import router from './router'
 
 import firebase from 'firebase'
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
+const firebaseConfig = {
+  authDomain: "vlcbt1-bd686.firebaseapp.com",
+  databaseURL: "https://vlcbt1-bd686.firebaseio.com",
+  projectId: "vlcbt1-bd686",
+  storageBucket: "vlcbt1-bd686.appspot.com",
+  messagingSenderId: "88733113811",
+  appId: "1:88733113811:web:0778717c0bf88e96206326"
+}
+firebaseConfig.apiKey = process.env.firebaseApiKey
 
 firebase.initializeApp( firebaseConfig )
 
