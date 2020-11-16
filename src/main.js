@@ -14,7 +14,7 @@ const firebaseConfig = {
   messagingSenderId: "88733113811",
   appId: "1:88733113811:web:0778717c0bf88e96206326"
 }
-firebaseConfig.apiKey = process.env.firebaseApiKey
+firebaseConfig.apiKey = "AIzaSyDe7Rd8bznfvDRtCBP_iu6tmUyuzeCAZeg" //process.env.firebaseApiKey
 
 firebase.initializeApp( firebaseConfig )
 

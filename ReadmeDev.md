@@ -11,9 +11,13 @@
 
 * vlcb main.js config
   * DONE - retrieved from firebase vlcb2 settings, app 'config'
-  * ? need to keep config (apiKey) in separate file
-  * file not in github, but pushed to dist and host???
-  * or need to set all the values in env ?
+  * DONE - need to keep config (just apiKey) in environment (outside of src)
+* Styling
+  * Navbar background
+  * page background
+  * scroll left hand nav section
+  * Add nav bar dropdown for Notes -  About/Diary/Bibliography/Login
+  * DONE - favicon, title
 * vlcb component/Login.js
   * ? add email login too?  // not really; only 'role' is editor == me
   * DONE - using google id login ok
@@ -37,16 +41,18 @@
   * "add Church" button !! if editor - just add dummy church
   * // no 'delete' button, use firestore console
 * brasses
-  * upload data
+  * DONE - upload data, and basic page view
 * rubbings
-  * upload data
+  * upload data, and basic page view
 * pics
-  * upload data
+  * DONE - upload data - merged into church/brass/rubbing objects in DB
 * other pages
   * map
   * blog
   * stats
-  * notes (w/ pagination!) (or autoscroll!)
+  * notes/about
+  * notes/diary
+  * notes/bibliography
   * logs (w/ pagination!) (or autoscroll!)
 
 * hosting
