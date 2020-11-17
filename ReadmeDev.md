@@ -5,6 +5,13 @@
 * browser app - apiKey is from firebase settings, General, 'app' section. The apiKey is not a secret, but google/github scanners pick it up. So it's arbitrarily split up in the code
 * fst.js tool - needs a service key generated from project settings, service key. the file is stored in a directory outside of the source control (~/lsrc/vue1) and SERVICE_KEY_FILE is set to full path
 
+## Backups
+
+* via firestore export
+  * https://console.cloud.google.com/firestore/import-export?project=vlcbt1-bd686
+  * https://console.cloud.google.com/storage/browser?project=vlcbt1-bd686
+* Also have fst.js tool to -dump into JSON; would store in Public/richard/src for offsite backup
+
 ## Development notes
 
 * fst tooling
