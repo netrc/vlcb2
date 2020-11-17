@@ -1,7 +1,7 @@
 <template>
     <section>
         <navigation></navigation>
-
+        <p> {{about}} </p>
     </section>
 </template>
 
@@ -12,18 +12,20 @@ import firebase from "firebase"
 export default {
     data() {
         return {
-          user: null
+          about: "..."
         };
     },
     components: {
         navigation
     },
     created() {
-      firebase.auth().onAuthStateChanged( user => {
-        if (user) {
-          this.user = user
-        }
-      })
+      this.getAbout()
+    },
+    methods: {
+      async getAbout() {
+        const doc = await firebase.firestore().collection('notes').doc('about').get()
+        this.about = (!doc.exists) ? 'doc dont exist' : doc.data().mdtext
+      }
     }
 };
 </script>

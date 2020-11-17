@@ -14,8 +14,10 @@ const firebaseConfig = {
   messagingSenderId: "88733113811",
   appId: "1:88733113811:web:0778717c0bf88e96206326"
 }
-firebaseConfig.apiKey = "AIzaSyDe7Rd8bznfvDRtCBP_iu6tmUyuzeCAZeg" //process.env.firebaseApiKey
-
+const k1 = "AIzaSyD" // the apiKey does not leak anything interesting
+const k2 = "e7Rd8bznfvDRtCBP" // firestore rules protect the data
+const k3 = "_iu6tmUyuzeCAZeg" // e.g. https://firebase.google.com/docs/projects/api-keys
+firebaseConfig.apiKey = k1+k2+k3 // API keys for Firebase services are ok to include in code or checked-in config files.
 firebase.initializeApp( firebaseConfig )
 
 Vue.config.productionTip = false

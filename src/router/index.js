@@ -6,6 +6,7 @@ import Profile from '@/components/Profile'
 import Churches from '@/components/Churches'
 import Brasses from '@/components/Brasses'
 import Rubbings from '@/components/Rubbings'
+import About from '@/components/About'
 
 Vue.use(Router)
 
@@ -18,6 +19,7 @@ export default new Router({
     { path: '/Churches', name: 'Churches', component: Churches, },
     { path: '/Brasses',  name: 'Brasses',  component: Brasses, },
     { path: '/Rubbings', name: 'Rubbings', component: Rubbings, },
+    { path: '/About', name: 'About', component: About, },
     { path: '/',         name: 'Home',     component: Home, }
   ]
 })

@@ -23,6 +23,7 @@
               <li> <router-link to="/Churches">Churches</router-link> </li>
               <li> <router-link to="/Brasses">Brasses</router-link> </li>
               <li> <router-link to="/Rubbings">Rubbings</router-link> </li>
+              <li> <router-link to="/About">About</router-link> </li>
               <!-- Dropdown Trigger -->
               <li><a id="ddtrig" class="dropdown-trigger" href="#!" data-target="dropdown1">Notes
                 <i class="material-icons right"></i></a>
