@@ -1,13 +1,19 @@
-# Development notes
+# Notes
+
+## Run notes
+
+* browser app - apiKey is from firebase settings, General, 'app' section. The apiKey is not a secret, but google/github scanners pick it up. So it's arbitrarily split up in the code
+* fst.js tool - needs a service key generated from project settings, service key. the file is stored in a directory outside of the source control (~/lsrc/vue1) and SERVICE_KEY_FILE is set to full path
+
+## Development notes
 
 * fst tooling
   * DONE simple output works for churches, roles
-  * add brasses, rubbings, notes, pics, logs
-  * todo: dump json
+  * DONE brasses, rubbings, notes, pics
+  * ignoring logs
+  * DONE: dump json  - fst.js -dump .... 
+  * todo: general run script
   * todo: import json
-  * DONE - servicekey - retrieved from firebase vlcb2 settings, service accounts; saved in keys (not in git)
-  * ? how long does servicekey last? can i make new ones?
-  
 
 * vlcb main.js config
   * DONE - retrieved from firebase vlcb2 settings, app 'config'
@@ -43,14 +49,14 @@
 * brasses
   * DONE - upload data, and basic page view
 * rubbings
-  * upload data, and basic page view
+  * DONE - upload data, and basic page view
 * pics
   * DONE - upload data - merged into church/brass/rubbing objects in DB
 * other pages
   * map
   * blog
   * stats
-  * notes/about
+  * DONE - notes/about
   * notes/diary
   * notes/bibliography
   * logs (w/ pagination!) (or autoscroll!)
@@ -81,8 +87,6 @@ Firestore
 
 * Thanks to https://softauthor.com/vue-firestore-crud-app-authentication/
 * note that for development, local browser turn off add blocking and allow blocked 3rd party cookies -- localhost
-
-This is a starter project folder for FirebaseUI Auth for Vue with Facebook, Google and Email Authentications.
 
 ## Build Setup
 
