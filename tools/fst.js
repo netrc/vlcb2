@@ -4,28 +4,41 @@
 
 const fadmin = require('../node_modules/firebase-admin')   // no transpiler yet
 
-const keyFile = "./keys/vlcbt1-bd686-firebase-adminsdk-io18n-33541c7399.json"
-// created from Settings/ServiceAccount page
+// service key file created from Settings/ServiceAccount page
+// store it somewhere, like lsrc/serviceKeys
 // note - firebaseConfig apiKey/authDomain, dbURL are for firebase (web) APIs
 // interesting(?) diff between f-admin API and f (web) API
 //  f-admin: await db.collection(x).get()
 //  f web: await firebase.firestore.collection(x)
 
-const serviceAccount = require(keyFile)
+const serviceAccount = require(process.env.SERVICE_KEY_FILE)
 const db = fadmin.initializeApp({
   credential: fadmin.credential.cert(serviceAccount),
   databaseURL: "https://vlcbt1-bd686.firebaseio.com"
 }).firestore()
 
 // simple one-line formatters
-const strFormat = {}
-strFormat.churches = d => {
-  const dd = d.data()
-  return `${d.id} => ${dd.name} year: ${dd.year}`
-}
-strFormat.users = d => {
-  const dd = d.data()
-  return `${d.id} user's roles => ${dd.roles}`
+const strFormat = {
+  churches: d => {
+    const dd = d.data()
+    return `${d.id} => ${dd.name} year: ${dd.year}`
+  },
+  brasses: d => {
+    const dd = d.data()
+    return `${d.id} => ${dd.name}`
+  },
+  rubbings: d => {
+    const dd = d.data()
+    return `${d.id} => ${dd.vlcn} ${dd.name}: ${dd.desc}`
+  },
+  notes: d => {
+    const dd = d.data()
+    return `${d.id} => ${dd.mdtext.substring(0,80)}`
+  },
+  users: d => {
+    const dd = d.data()
+    return `${d.id} user's roles => ${dd.roles}`
+  }
 }
 
 // just checks for empty first; use .docs to get array to map
@@ -53,12 +66,11 @@ const colToJSON = async (db, colName) => {
   console.log(JSON.stringify(dumpObj))
 }
 
-const availColls = [ 'churches', 'users' ]
+const availColls = [ 'churches', 'brasses', 'rubbings', 'notes', 'users' ]
 let doFunc = colToString
-if (process.argv[2][0] == '-') { 
+if ( (process.argv.length>1) && (process.argv[2][0] == '-') ) { 
   doFunc = (process.argv[2] == '-dump') ?  colToJSON : doFunc
   process.argv.splice(2,1)
-console.dir(process.argv)
 }
 arg2 = (process.argv.length == 3) ? process.argv[2] : 'xxx'  // show
 // check for -delete -y churches
