@@ -2,12 +2,16 @@
     <section>
         <navigation></navigation>
         <p> {{about}} </p>
+        <br>
+        <hr>
+        <mdviewedit> xyz </mdviewedit>
     </section>
 </template>
 
 <script>
 import navigation from "@/components/NavBar.vue";
 import firebase from "firebase"
+import mdviewedit from "@/components/MdViewEdit.vue"
 
 export default {
     data() {
@@ -16,7 +20,8 @@ export default {
         };
     },
     components: {
-        navigation
+        navigation,
+        mdviewedit
     },
     created() {
       this.getAbout()
