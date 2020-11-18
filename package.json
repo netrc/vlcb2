@@ -1,8 +1,8 @@
 {
-  "name": "start",
+  "name": "vlcb2",
   "version": "1.0.0",
-  "description": "This is a starter project folder for FirebaseUI Auth for Vue with Facebook, Google and Email Authentications.",
-  "author": "SoftAuthor <info@softauthor.com>",
+  "description": "Viewer for VLC Brass Rubbings",
+  "author": "ric <ric@netrc.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
